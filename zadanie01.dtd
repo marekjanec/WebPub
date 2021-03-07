@@ -7,10 +7,14 @@
 <!ELEMENT meno (#PCDATA)>
 <!ELEMENT knihy (kniha+)>
 
-<!ELEMENT kniha (nazov, pocet_stran)>
+<!ELEMENT kniha (nazov, pocet_stran, informacie)>
 
 <!ELEMENT nazov (#PCDATA)>
 <!ELEMENT pocet_stran (#PCDATA)>
+<!ELEMENT informacie (#PCDATA | link)>
+<!ELEMENT link EMPTY>
+<!ATTLIST link link_value #IMPLIED>
+
 
 <!ATTLIST kniha id ID #REQUIRED>
 <!ATTLIST kniha autorID IDREF #REQUIRED>

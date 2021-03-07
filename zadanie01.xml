@@ -8,26 +8,34 @@
                     <kniha id="k1" autorID="a2">
                         <nazov>Kukuriaca na 1000 spôsobov</nazov>
                         <pocet_stran>1001</pocet_stran>
+                        <informacie>Kratky popis pre tuto uzasnu knihu</informacie>
                     </kniha>
                     <kniha id="k2" autorID="a2">
                         <nazov>Kukuričné pole</nazov>
                         <pocet_stran>345</pocet_stran>
+                        <informacie>Kratky popis pre tuto uzasnu knihu</informacie>
                     </kniha>
                     <kniha id="k3" autorID="a2">
                         <nazov>Hus útočí na kukuricu</nazov>
                         <pocet_stran>234</pocet_stran>
+                        <informacie>Kratky popis pre tuto uzasnu knihu</informacie>
                     </kniha>
                     <kniha id="k4" autorID="a2">
                         <nazov>Peter spadol z kukurice</nazov>
                         <pocet_stran>654</pocet_stran>
+                        <informacie>Kratky popis pre tuto uzasnu knihu</informacie>
                     </kniha>
                     <kniha id="k5" autorID="a2">
                         <nazov>Kukurica v tme</nazov>
                         <pocet_stran>263</pocet_stran>
+                        <informacie>Kratky popis pre tuto uzasnu knihu</informacie>
                     </kniha>
                     <kniha id="k6" autorID="a1">
                         <nazov>Zmluva s kukuricou</nazov>
                         <pocet_stran>753</pocet_stran>
+                        <informacie>
+                            <link link_value="www.zmluvaskukuricov.sk"/>
+                        </informacie>
                     </kniha>
                     <kniha id="k7" autorID="a1">
                         <nazov>Letna kukurica</nazov>
@@ -36,14 +44,23 @@
                     <kniha id="k8" autorID="a1">
                         <nazov>Lov na kukuricu</nazov>
                         <pocet_stran>234</pocet_stran>
+                        <informacie>
+                            <link link_value="www.lovnakukuricu.sk"/>
+                        </informacie>
                     </kniha>
                     <kniha id="k9" autorID="a1">
                         <nazov>Papezova kukurica</nazov>
                         <pocet_stran>453</pocet_stran>
+                        <informacie>
+                            <link link_value="www.pk.sk"/>
+                        </informacie>
                     </kniha>
                     <kniha id="k10" autorID="a1">
                         <nazov>Cvicime s kukuricou</nazov>
                         <pocet_stran>300</pocet_stran>
+                        <informacie>
+                            <link link_value="www.cvicimeskukuricov.sk"/>
+                        </informacie>
                     </kniha>
                 </knihy>
             </zaner>
