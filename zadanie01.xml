@@ -1,0 +1,94 @@
+<!DOCTYPE kniznice SYSTEM "/zadanie01.dtd">
+<kniznice>
+    <kniznica>
+        <zanre>
+            <zaner>
+                <meno>Kukurica</meno>
+                <knihy>
+                    <kniha id="k1" autorID="a2">
+                        <nazov>Kukuriaca na 1000 spôsobov</nazov>
+                        <pocet_stran>1001</pocet_stran>
+                    </kniha>
+                    <kniha id="k2" autorID="a2">
+                        <nazov>Kukuričné pole</nazov>
+                        <pocet_stran>345</pocet_stran>
+                    </kniha>
+                    <kniha id="k3" autorID="a2">
+                        <nazov>Hus útočí na kukuricu</nazov>
+                        <pocet_stran>234</pocet_stran>
+                    </kniha>
+                    <kniha id="k4" autorID="a2">
+                        <nazov>Peter spadol z kukurice</nazov>
+                        <pocet_stran>654</pocet_stran>
+                    </kniha>
+                    <kniha id="k5" autorID="a2">
+                        <nazov>Kukurica v tme</nazov>
+                        <pocet_stran>263</pocet_stran>
+                    </kniha>
+                    <kniha id="k6" autorID="a1">
+                        <nazov>Zmluva s kukuricou</nazov>
+                        <pocet_stran>753</pocet_stran>
+                    </kniha>
+                    <kniha id="k7" autorID="a1">
+                        <nazov>Letna kukurica</nazov>
+                        <pocet_stran>142</pocet_stran>
+                    </kniha>
+                    <kniha id="k8" autorID="a1">
+                        <nazov>Lov na kukuricu</nazov>
+                        <pocet_stran>234</pocet_stran>
+                    </kniha>
+                    <kniha id="k9" autorID="a1">
+                        <nazov>Papezova kukurica</nazov>
+                        <pocet_stran>453</pocet_stran>
+                    </kniha>
+                    <kniha id="k10" autorID="a1">
+                        <nazov>Cvicime s kukuricou</nazov>
+                        <pocet_stran>300</pocet_stran>
+                    </kniha>
+                </knihy>
+            </zaner>
+        </zanre>
+        <uzivatelia>
+            <uzivatel id="u1">
+                <meno>Michal Hodina</meno>
+                <datum_narodenia>16.6.2000</datum_narodenia>
+                <vypozicka>
+                    <pozicana_kniha idKnihy="k9" vypozicane_do="15.3.2021" stav="nevratene"/>
+                </vypozicka>
+            </uzivatel>
+            <uzivatel id="u2">
+                <meno>Nadežda Nablhova</meno>
+                <datum_narodenia>25.5.1992</datum_narodenia>
+                <vypozicka>
+                    <pozicana_kniha idKnihy="k2" vypozicane_do="12.4.2021" stav="vratene"/>
+                    <pozicana_kniha idKnihy="k6" vypozicane_do="12.4.2021" stav="vypozicane"/>
+                </vypozicka>
+            </uzivatel>
+            <uzivatel id="u3">
+                <meno>Vladimir Soletka-Hlacina</meno>
+                <datum_narodenia>15.3.1999</datum_narodenia>
+                <vypozicka>
+                    <pozicana_kniha idKnihy="k1" vypozicane_do="10.3.2021" stav="vypozicane"/>
+                </vypozicka>
+            </uzivatel>
+        </uzivatelia>
+        <knihovnici>
+            <knihovnik>
+                <meno>Lucia Falbova</meno>
+                <datum_narodenia>24.12.1981</datum_narodenia>
+            </knihovnik>
+        </knihovnici>
+        <autori>
+            <autor id="a1">
+                <meno>John Corn</meno>
+                <pocet_knih>5</pocet_knih>
+                <datum_narodenia>18.3.1970</datum_narodenia>
+            </autor>
+            <autor id="a2">
+                <meno>Peter Kukurica</meno>
+                <pocet_knih>8</pocet_knih>
+                <datum_narodenia>6.6.1966</datum_narodenia>
+            </autor>
+        </autori>
+    </kniznica>
+</kniznice>

@@ -1,0 +1,37 @@
+<!ELEMENT kniznice (kniznica)>
+<!ELEMENT kniznica (zanre,uzivatelia,knihovnici,autori)>
+
+<!ELEMENT zanre (zaner+)>
+
+<!ELEMENT zaner (meno, knihy)>
+<!ELEMENT meno (#PCDATA)>
+<!ELEMENT knihy (kniha+)>
+
+<!ELEMENT kniha (nazov, pocet_stran)>
+
+<!ELEMENT nazov (#PCDATA)>
+<!ELEMENT pocet_stran (#PCDATA)>
+
+<!ATTLIST kniha id ID #REQUIRED>
+<!ATTLIST kniha autorID IDREF #REQUIRED>
+
+<!ELEMENT uzivatelia (uzivatel*)>
+<!ELEMENT uzivatel (meno, datum_narodenia, vypozicka)>
+
+<!ELEMENT datum_narodenia (#PCDATA)>
+<!ELEMENT vypozicka (pozicana_kniha*)>
+<!ATTLIST uzivatel id ID #REQUIRED>
+
+<!ELEMENT pozicana_kniha EMPTY>
+<!ATTLIST pozicana_kniha idKnihy IDREF #REQUIRED>
+<!ATTLIST pozicana_kniha vypozicane_do CDATA #REQUIRED>
+<!ATTLIST pozicana_kniha stav (vypozicane|vratene|nevratene)>
+
+<!ELEMENT knihovnici (knihovnik+)>
+
+<!ELEMENT knihovnik (meno, datum_narodenia)>
+
+<!ELEMENT autori (autor+)>
+<!ELEMENT autor (meno, pocet_knih, datum_narodenia)>
+<!ELEMENT pocet_knih (#PCDATA)>
+<!ATTLIST autor id ID #REQUIRED>
