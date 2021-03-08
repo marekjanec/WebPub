@@ -12,6 +12,7 @@
 <!ELEMENT nazov (#PCDATA)>
 <!ELEMENT pocet_stran (#PCDATA)>
 <!ELEMENT informacie (#PCDATA | link)>
+
 <!ELEMENT link EMPTY>
 <!ATTLIST link link_value #IMPLIED>
 
