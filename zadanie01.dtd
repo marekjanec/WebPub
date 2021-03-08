@@ -14,7 +14,7 @@
 <!ELEMENT informacie (#PCDATA | link)>
 
 <!ELEMENT link EMPTY>
-<!ATTLIST link link_value #IMPLIED>
+<!ATTLIST link link_value CDATA #IMPLIED>
 
 
 <!ATTLIST kniha id ID #REQUIRED>
