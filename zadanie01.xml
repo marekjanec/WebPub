@@ -104,6 +104,7 @@
                 <vypozicka>
                     <pozicana_kniha idKnihy="k2" vypozicane_do="12.4.2021" stav="vratene"/>
                     <pozicana_kniha idKnihy="k6" vypozicane_do="15.4.2021" stav="vypozicane"/>
+                    <pozicana_kniha idKnihy="k7" vypozicane_do="15.4.2021" stav="vypozicane"/>
                 </vypozicka>
             </uzivatel>
             <uzivatel id="u3">

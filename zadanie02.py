@@ -2,6 +2,8 @@ import lxml.etree as ET
 
 dom = ET.parse("zadanie01.xml")
 xslt = ET.parse("zadanie02.xsl")
+#dom = ET.parse("test.xml")
+#xslt = ET.parse("test.xsl")
 transform = ET.XSLT(xslt)
 newdom = transform(dom)
 

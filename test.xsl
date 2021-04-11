@@ -5,29 +5,23 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
   <html>
   <body>
-  <h2>My CD Collection</h2>
-  <xsl:apply-templates/>
+    <h2>My CD Collection</h2>
+    <p>Titles:
+    <xsl:for-each select="catalog/cd">
+      <xsl:value-of select="title"/>
+      <xsl:if test="position() &lt; last()-1">
+        <xsl:text>, </xsl:text>
+      </xsl:if>
+      <xsl:if test="position()=last()-1">
+        <xsl:text>, and </xsl:text>
+      </xsl:if>
+      <xsl:if test="position()=last()">
+        <xsl:text>!</xsl:text>
+      </xsl:if>
+    </xsl:for-each>
+    </p>
   </body>
   </html>
-</xsl:template>
-
-<xsl:template match="cd">
-  <p>
-  <xsl:apply-templates select="title"/>
-  <xsl:apply-templates select="artist"/>
-  </p>
-</xsl:template>
-
-<xsl:template match="title">
-  Title: <span style="color:#ff0000">
-  <xsl:value-of select="."/></span>
-  <br />
-</xsl:template>
-
-<xsl:template match="artist">
-  Artist: <span style="color:#00ff00">
-  <xsl:value-of select="."/></span>
-  <br />
 </xsl:template>
 
 </xsl:stylesheet>
