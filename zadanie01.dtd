@@ -1,5 +1,7 @@
 <!ELEMENT kniznice (kniznica)>
 <!ELEMENT kniznica (zanre,uzivatelia,knihovnici,autori)>
+<!ATTLIST kniznica nazov CDATA>
+<!ATTLIST kniznica adresa CDATA>
 
 <!ELEMENT zanre (zaner+)>
 

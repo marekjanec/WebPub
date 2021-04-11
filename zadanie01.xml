@@ -1,6 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="zadanie02.xsl"?>
 <!DOCTYPE kniznice SYSTEM "/zadanie01.dtd">
 <kniznice>
-    <kniznica>
+    <kniznica nazov="Kniznica Ruzinov" adresa="Ruzinovska 10, Bratislava Ruzinov">
         <zanre>
             <zaner>
                 <meno>Kukurica</meno>
@@ -40,6 +42,9 @@
                     <kniha id="k7" autorID="a1">
                         <nazov>Letna kukurica</nazov>
                         <pocet_stran>142</pocet_stran>
+                        <informacie>
+                            <link link_value="www.letnakukurica.sk"/>
+                        </informacie>
                     </kniha>
                     <kniha id="k8" autorID="a1">
                         <nazov>Lov na kukuricu</nazov>
@@ -64,6 +69,26 @@
                     </kniha>
                 </knihy>
             </zaner>
+            <zaner>
+                <meno>Mrkva</meno>
+                <knihy>
+                    <kniha id="k11" autorID="a2">
+                        <nazov>Mrkva na 1000 spôsobov</nazov>
+                        <pocet_stran>1001</pocet_stran>
+                        <informacie>Kratky popis pre tuto uzasnu knihu</informacie>
+                    </kniha>
+                </knihy>
+            </zaner>
+            <zaner>
+                <meno>Jablka</meno>
+                <knihy>
+                    <kniha id="k21" autorID="a2">
+                        <nazov>Jablka na 1000 spôsobov</nazov>
+                        <pocet_stran>1001</pocet_stran>
+                        <informacie>Kratky popis pre tuto uzasnu knihu</informacie>
+                    </kniha>
+                </knihy>
+            </zaner>
         </zanre>
         <uzivatelia>
             <uzivatel id="u1">
@@ -78,7 +103,7 @@
                 <datum_narodenia>25.5.1992</datum_narodenia>
                 <vypozicka>
                     <pozicana_kniha idKnihy="k2" vypozicane_do="12.4.2021" stav="vratene"/>
-                    <pozicana_kniha idKnihy="k6" vypozicane_do="12.4.2021" stav="vypozicane"/>
+                    <pozicana_kniha idKnihy="k6" vypozicane_do="15.4.2021" stav="vypozicane"/>
                 </vypozicka>
             </uzivatel>
             <uzivatel id="u3">
@@ -87,6 +112,11 @@
                 <vypozicka>
                     <pozicana_kniha idKnihy="k1" vypozicane_do="10.3.2021" stav="vypozicane"/>
                 </vypozicka>
+            </uzivatel>
+            <uzivatel id="u4">
+                <meno>Adam Prvy</meno>
+                <datum_narodenia>15.3.1999</datum_narodenia>
+                <vypozicka/>
             </uzivatel>
         </uzivatelia>
         <knihovnici>

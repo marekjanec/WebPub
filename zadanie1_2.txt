@@ -1,0 +1,35 @@
+1.predikát testujúci hodnotu atribútu
+
+//kniha[pocet_stran > 600]/nazov
+
+vyhlada vsetky knihy ktore maju viac ako 600 stran a vypise ich nazov
+
+2.predikát testujúci existenciu podriadeného elementu
+
+//uzivatel[vypozicka[pozicana_kniha]]/meno
+
+vrati mena uzivatelov ktory maju aktualne pozicane knihy
+
+3.predikát testujúci neexistenciu podriadeného elementu
+
+//uzivatel[vypozicka[count(*) = 0]]/meno
+
+vrati uzivatelov kotry nemaju aktualne pozicane ziadne knihy
+
+4.predikát testujúci pozíciu
+
+//uzivatel[vypozicka[count(*) >= 2]]/vypozicka/pozicana_kniha[2]/attribute::vypozicane_do
+
+najde mi uzivatela ktory ma vypozicanych 2 a viac knih a vypise cas ukoncenia vypozicania druhej knihy
+
+5.predikát testujúci počet
+
+3 <= count(//uzivatel[vypozicka[count(*) >= 1]])
+
+vrati mi hodnotu true ak je v kniznici 3 a viac uzivatelov, ktory maju pozicane knihy
+
+6.použijete niektorú z os: ancestor[-or-self], preceding[-sibling], following[-sibling]
+
+descendant::kniha
+
+vrati mi zoznam vsetkych knih v kniznici aj s informaciami o nich
