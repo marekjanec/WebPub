@@ -1,0 +1,49 @@
+
+body {
+    background-color: aliceblue;
+}
+
+h2, h3 {
+    background-color: darkgray;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+
+td, th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.main_div {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 5%;
+
+}
+
+.vypozicane {
+    background-color: #aceaec;
+}
+
+.nevratene {
+    background-color: #ecaeac;
+}
+
+.vratene {
+    background-color: #d3ecac;
+}

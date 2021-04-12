@@ -5,8 +5,41 @@
 
     <xsl:template match="/">
         <html>
+            <head>
+                <xsl:element name="link">
+                    <xsl:attribute name="rel">
+                        <xsl:text>stylesheet</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="type">
+                        <xsl:text>text/css</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="media">
+                        <xsl:text>screen</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="href">
+                        <xsl:text>screen.css</xsl:text>
+                    </xsl:attribute>
+                </xsl:element>
+
+                <xsl:element name="link">
+                    <xsl:attribute name="rel">
+                        <xsl:text>stylesheet</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="type">
+                        <xsl:text>text/css</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="media">
+                        <xsl:text>print</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="href">
+                        <xsl:text>print.css</xsl:text>
+                    </xsl:attribute>
+                </xsl:element>
+            </head>
             <body>
-                <xsl:apply-templates select="/kniznice/kniznica"/>
+                <div class="main_div">
+                    <xsl:apply-templates select="/kniznice/kniznica"/>
+                </div>
             </body>
         </html>
     </xsl:template>
@@ -53,14 +86,17 @@
     </xsl:template>
 
     <xsl:template match="zanre">
-        <xsl:element name="h3">
+        <xsl:element name="h2">
             <xsl:text>Zanre</xsl:text>
         </xsl:element>
 
         <xsl:for-each select="zaner">
-            <table border="1">
+            <xsl:element name="h3">
+                <xsl:value-of select="meno"/>
+            </xsl:element>
+            <table>
                 <xsl:attribute name="class">
-                    <xsl:value-of select="table_class"/>
+                    <xsl:text>table_class</xsl:text>
                 </xsl:attribute>
                 <xsl:copy-of select="$header"/>
                 <xsl:for-each select="knihy">
@@ -112,10 +148,10 @@
     </xsl:variable>
 
     <xsl:template match="uzivatelia">
-        <h3>Uzivatelia</h3>
-        <table border="1">
+        <h2>Uzivatelia</h2>
+        <table>
             <xsl:attribute name="class">
-                <xsl:value-of select="table_class"/>
+                <xsl:text>table_class</xsl:text>
             </xsl:attribute>
             <xsl:copy-of select="$header_meno_datum"/>
             <xsl:for-each select="uzivatel">
@@ -143,10 +179,10 @@
     </xsl:template>
 
     <xsl:template match="knihovnici">
-        <h3>Knihovnici</h3>
-        <table border="1">
+        <h2>Knihovnici</h2>
+        <table>
             <xsl:attribute name="class">
-                <xsl:value-of select="table_class"/>
+                <xsl:text>table_class</xsl:text>
             </xsl:attribute>
             <xsl:copy-of select="$header_meno_datum"/>
             <xsl:for-each select="knihovnik">
@@ -168,10 +204,10 @@
     </xsl:template>
 
     <xsl:template match="autori">
-        <h3>Autori</h3>
-        <table border="1">
+        <h2>Autori</h2>
+        <table>
             <xsl:attribute name="class">
-                <xsl:value-of select="table_class"/>
+                <xsl:text>table_class</xsl:text>
             </xsl:attribute>
             <xsl:copy-of select="$header_meno_datum"/>
             <xsl:for-each select="autor">
@@ -193,9 +229,9 @@
             <xsl:value-of select="count(//kniha[@id = //pozicana_kniha/@idKnihy])"/>
         </xsl:element>
 
-        <table border="1">
+        <table>
             <xsl:attribute name="class">
-                <xsl:value-of select="table_class"/>
+                <xsl:text>table_class</xsl:text>
             </xsl:attribute>
             <tr>
                 <th>
@@ -225,27 +261,36 @@
             <xsl:text>Pozicane knihy podla poctu:</xsl:text>
             <xsl:value-of select="count(//pozicana_kniha)"/>
         </xsl:element>
-        <table border="1">
+        <table>
             <xsl:attribute name="class">
-                <xsl:value-of select="table_class"/>
+                <xsl:text>table_class</xsl:text>
             </xsl:attribute>
 
             <xsl:for-each select="//uzivatel[vypozicka[count(*) > 0]]">
 
-                <tr>
-                    <th>
+                <xsl:element name="tr">
+                    <xsl:element name="th">
                         <xsl:value-of select="meno"/>
-                    </th>
-                </tr>
+                    </xsl:element>
+                    <xsl:element name="th">
+                        <xsl:text>vypozicane do</xsl:text>
+                    </xsl:element>
+                    <xsl:element name="th">
+                        <xsl:text>stav</xsl:text>
+                    </xsl:element>
+                </xsl:element>
+
                 <xsl:for-each select="vypozicka/pozicana_kniha">
-                    <tr>
-                        <td>
+                    <xsl:element name="tr">
+                        <xsl:element name="td">
                             <xsl:text>ID:</xsl:text>
                             <xsl:value-of select="@idKnihy"/>
-                        </td>
-                        <td>
+                        </xsl:element>
+
+
+                        <xsl:element name="td">
                             <xsl:value-of select="@vypozicane_do"/>
-                        </td>
+                        </xsl:element>
 
                         <xsl:element name="td">
                             <xsl:attribute name="class">
@@ -253,14 +298,10 @@
                             </xsl:attribute>
                             <xsl:value-of select="@stav"/>
                         </xsl:element>
-                    </tr>
+                    </xsl:element>
                 </xsl:for-each>
             </xsl:for-each>
-
-
         </table>
     </xsl:template>
-
-
 </xsl:stylesheet>
 
