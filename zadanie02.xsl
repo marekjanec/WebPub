@@ -182,7 +182,11 @@
     </xsl:template>
 
     <xsl:template name="pozicane_knihy">
-        <h3>Pozicane knihy</h3>
+        <xsl:element name="h3">
+            <xsl:text>Pozicane knihy: </xsl:text>
+            <xsl:value-of select="count(//pozicana_kniha)"/>
+        </xsl:element>
+
         <table border="1">
 
             <xsl:for-each select="//kniha[@id = //pozicana_kniha/@idKnihy]">
@@ -193,33 +197,40 @@
                     <td>
                         <xsl:value-of select="nazov"/>
                     </td>
-                    <td>
-                        <xsl:value-of select="pocet_stran"/>
-                    </td>
                 </tr>
             </xsl:for-each>
         </table>
     </xsl:template>
 
 
-
     <xsl:template name="pozicane_knihy_pocty">
         <h3>Pozicane knihy</h3>
         <table border="1">
 
-            <xsl:for-each select="//uzivatel/vypozicka/pozicana_kniha">
+            <xsl:for-each select="//uzivatel[vypozicka[count(*) > 0]]">
+
                 <tr>
                     <td>
-                        <xsl:value-of select="@idKnihy"/>
+                        <xsl:value-of select="meno"/>
                     </td>
-                    <td>
-                        <xsl:value-of select="@vypozicane_do"/>
-                    </td>
-                    <td>
-                        <xsl:value-of select="@stav"/>
-                    </td>
+
                 </tr>
+                <xsl:for-each select="vypozicka/pozicana_kniha">
+                    <tr>
+                        <td>
+                            <xsl:value-of select="@idKnihy"/>
+                        </td>
+                        <td>
+                            <xsl:value-of select="@vypozicane_do"/>
+                        </td>
+                        <td>
+                            <xsl:value-of select="@stav"/>
+                        </td>
+                    </tr>
+                </xsl:for-each>
             </xsl:for-each>
+
+
         </table>
     </xsl:template>
 
