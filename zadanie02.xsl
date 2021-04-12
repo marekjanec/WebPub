@@ -22,6 +22,16 @@
 
         <xsl:apply-templates select="zanre"/>
         <xsl:apply-templates select="uzivatelia"/>
+        <xsl:apply-templates select="knihovnici"/>
+        <xsl:apply-templates select="autori"/>
+        <xsl:call-template name="pozicane_knihy">
+
+        </xsl:call-template>
+        <xsl:call-template name="pozicane_knihy_pocty">
+
+        </xsl:call-template>
+
+
     </xsl:template>
 
     <xsl:variable name="header">
@@ -75,17 +85,17 @@
         </tr>
     </xsl:template>
 
+    <xsl:variable name="header_meno_datum">
+        <tr>
+            <th>Meno</th>
+            <th>datum narodenia</th>
+        </tr>
+    </xsl:variable>
+
     <xsl:template match="uzivatelia">
         <h3>Uzivatelia</h3>
         <table border="1">
-            <tr>
-                <th>
-                    meno
-                </th>
-                <th>
-                    datum narodenia
-                </th>
-            </tr>
+            <xsl:copy-of select="$header_meno_datum"/>
             <xsl:for-each select="uzivatel">
                 <tr>
                     <td>
@@ -103,6 +113,82 @@
             </xsl:for-each>
         </table>
     </xsl:template>
+
+    <xsl:template match="knihovnici">
+        <h3>Knihovnici</h3>
+        <table border="1">
+            <xsl:copy-of select="$header_meno_datum"/>
+            <xsl:for-each select="knihovnik">
+                <tr>
+                    <td>
+                        <xsl:value-of select="meno"/>
+                    </td>
+                    <td>
+                        <xsl:value-of select="datum_narodenia"/>
+                    </td>
+                </tr>
+            </xsl:for-each>
+        </table>
+    </xsl:template>
+
+    <xsl:template match="autori">
+        <h3>Autori</h3>
+        <table border="1">
+            <xsl:copy-of select="$header_meno_datum"/>
+            <xsl:for-each select="autor">
+                <tr>
+                    <td>
+                        <xsl:value-of select="meno"/>
+                    </td>
+                    <td>
+                        <xsl:value-of select="datum_narodenia"/>
+                    </td>
+                </tr>
+            </xsl:for-each>
+        </table>
+    </xsl:template>
+
+    <xsl:template name="pozicane_knihy">
+        <h3>Pozicane knihy</h3>
+        <table border="1">
+
+            <xsl:for-each select="//kniha[@id = //pozicana_kniha/@idKnihy]">
+                <tr>
+                    <td>
+                        <xsl:value-of select="@id"/>
+                    </td>
+                    <td>
+                        <xsl:value-of select="nazov"/>
+                    </td>
+                    <td>
+                        <xsl:value-of select="pocet_stran"/>
+                    </td>
+                </tr>
+            </xsl:for-each>
+        </table>
+    </xsl:template>
+
+
+    <xsl:template name="pozicane_knihy_pocty">
+        <h3>Pozicane knihy</h3>
+        <table border="1">
+
+            <xsl:for-each select="//uzivatel/vypozicka/pozicana_kniha">
+                <tr>
+                    <td>
+                        <xsl:value-of select="@idKnihy"/>
+                    </td>
+                    <td>
+                        <xsl:value-of select="@vypozicane_do"/>
+                    </td>
+                    <td>
+                        <xsl:value-of select="@stav"/>
+                    </td>
+                </tr>
+            </xsl:for-each>
+        </table>
+    </xsl:template>
+
 
 </xsl:stylesheet>
 
