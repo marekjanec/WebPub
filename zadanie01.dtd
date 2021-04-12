@@ -1,6 +1,6 @@
 <!ELEMENT kniznice (kniznica)>
 <!ELEMENT kniznica (zanre,uzivatelia,knihovnici,autori)>
-<!ATTLIST kniznica nazov CDATA>
+<!ATTLIST kniznica nazov_kniznice CDATA>
 <!ATTLIST kniznica adresa CDATA>
 
 <!ELEMENT zanre (zaner+)>
@@ -37,6 +37,7 @@
 <!ELEMENT knihovnici (knihovnik+)>
 
 <!ELEMENT knihovnik (meno, datum_narodenia)>
+<!ATTLIST knihovnik id ID #REQUIRED>
 
 <!ELEMENT autori (autor+)>
 <!ELEMENT autor (meno, pocet_knih, datum_narodenia)>

@@ -6,17 +6,18 @@
     <xsl:template match="/">
         <html>
             <body>
-                <h1>Kniznice</h1>
                 <xsl:apply-templates select="/kniznice/kniznica"/>
             </body>
         </html>
     </xsl:template>
 
     <xsl:template match="/kniznice/kniznica">
-        <h2>Kniznica</h2>
+        <xsl:element name="h1">
+            <xsl:text>Kniznice</xsl:text>
+        </xsl:element>
 
         <xsl:call-template name="popis">
-            <xsl:with-param name="nazov_param" select="@nazov"/>
+            <xsl:with-param name="nazov_param" select="@nazov_kniznice"/>
             <xsl:with-param name="adresa_param" select="@adresa"/>
         </xsl:call-template>
 
@@ -45,6 +46,11 @@
     <xsl:template name="popis">
         <xsl:param name="nazov_param"/>
         <xsl:param name="adresa_param"/>
+
+        <xsl:element name="h2">
+            <xsl:text>Kniznica</xsl:text>
+        </xsl:element>
+
         <p>
             <xsl:value-of select="$nazov_param"/>
             <br/>
@@ -53,7 +59,10 @@
     </xsl:template>
 
     <xsl:template match="zanre">
-        <h3>Zanre</h3>
+        <xsl:element name="h3">
+            <xsl:text>Zanre</xsl:text>
+        </xsl:element>
+
         <xsl:for-each select="zaner">
             <table border="1">
                 <xsl:copy-of select="$header"/>
@@ -66,23 +75,36 @@
 
     <xsl:template match="kniha">
         <tr>
+            <xsl:attribute name="id">
+                <xsl:value-of select="@id"/>
+            </xsl:attribute>
             <td>
                 <xsl:value-of select="nazov"/>
             </td>
             <td>
                 <xsl:value-of select="pocet_stran"/>
             </td>
-            <td>
-                <xsl:choose>
-                    <xsl:when test="informacie/link">
-                        <xsl:value-of select="informacie/link/@link_value"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="informacie"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </td>
+
+            <xsl:call-template name="kniha_info">
+                <xsl:with-param name="informacie_obsah" select="informacie"/>
+            </xsl:call-template>
+
         </tr>
+    </xsl:template>
+
+    <xsl:template name="kniha_info">
+        <xsl:param name="informacie_obsah"/>
+        <td>
+            <xsl:choose>
+                <xsl:when test="$informacie_obsah/link">
+                    <xsl:value-of select="$informacie_obsah/link/@link_value"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$informacie_obsah"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </td>
+
     </xsl:template>
 
     <xsl:variable name="header_meno_datum">
@@ -98,17 +120,23 @@
             <xsl:copy-of select="$header_meno_datum"/>
             <xsl:for-each select="uzivatel">
                 <tr>
-                    <td>
+                    <xsl:attribute name="id">
+                        <xsl:value-of select="@id"/>
+                    </xsl:attribute>
+
+                    <xsl:element name="td">
                         <xsl:value-of select="meno"/>
-                    </td>
-                    <td>
+                    </xsl:element>
+
+                    <xsl:element name="td">
                         <xsl:value-of select="datum_narodenia"/>
-                    </td>
-                    <td>
+                    </xsl:element>
+
+                    <xsl:element name="td">
                         <xsl:if test="vypozicka/pozicana_kniha">
                             <xsl:text>S VYPOZICKOV</xsl:text>
                         </xsl:if>
-                    </td>
+                    </xsl:element>
                 </tr>
             </xsl:for-each>
         </table>
@@ -120,12 +148,17 @@
             <xsl:copy-of select="$header_meno_datum"/>
             <xsl:for-each select="knihovnik">
                 <tr>
-                    <td>
+                    <xsl:attribute name="id">
+                        <xsl:value-of select="@id"/>
+                    </xsl:attribute>
+
+                    <xsl:element name="td">
                         <xsl:value-of select="meno"/>
-                    </td>
-                    <td>
+                    </xsl:element>
+
+                    <xsl:element name="td">
                         <xsl:value-of select="datum_narodenia"/>
-                    </td>
+                    </xsl:element>
                 </tr>
             </xsl:for-each>
         </table>
@@ -167,6 +200,7 @@
             </xsl:for-each>
         </table>
     </xsl:template>
+
 
 
     <xsl:template name="pozicane_knihy_pocty">

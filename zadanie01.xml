@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="zadanie02.xsl"?>
 <!DOCTYPE kniznice SYSTEM "/zadanie01.dtd">
 <kniznice>
-    <kniznica nazov="Kniznica Ruzinov" adresa="Ruzinovska 10, Bratislava Ruzinov">
+    <kniznica nazov_kniznice="Kniznica Ruzinov" adresa="Ruzinovska 10, Bratislava Ruzinov">
         <zanre>
             <zaner>
                 <meno>Kukurica</meno>
@@ -112,6 +112,8 @@
                 <datum_narodenia>15.3.1999</datum_narodenia>
                 <vypozicka>
                     <pozicana_kniha idKnihy="k1" vypozicane_do="10.3.2021" stav="vypozicane"/>
+                    <pozicana_kniha idKnihy="k6" vypozicane_do="15.5.2021" stav="vypozicane"/>
+                    <pozicana_kniha idKnihy="k7" vypozicane_do="5.7.2021" stav="vypozicane"/>
                 </vypozicka>
             </uzivatel>
             <uzivatel id="u4">
@@ -121,7 +123,7 @@
             </uzivatel>
         </uzivatelia>
         <knihovnici>
-            <knihovnik>
+            <knihovnik id="kn1">
                 <meno>Lucia Falbova</meno>
                 <datum_narodenia>24.12.1981</datum_narodenia>
             </knihovnik>
