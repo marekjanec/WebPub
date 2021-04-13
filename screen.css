@@ -1,5 +1,66 @@
+.vypozicane {
+    background-color: #aceaec;
+}
+
+.nevratene {
+    background-color: #ecaeac;
+}
+
+.vratene {
+    background-color: #d3ecac;
+}
+
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    body {
+        background-color: #EDF7F6;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h3 {
+        text-align: center;
+        padding: 6px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    h2 {
+        text-align: center;
+        padding: 6px;
+        margin-top: 50px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    tr:nth-of-type(odd) {
+        background: #eee;
+    }
+
+    th {
+        background: #A18089;
+        color: white;
+        font-weight: bold;
+    }
+
+    td, th {
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    .main_div {
+        margin: auto;
+        width: 95%;
+    }
+
 
 }
 
@@ -11,6 +72,7 @@
     }
 
     h3 {
+        text-align: center;
         padding: 6px;
         background-color: #84626b;
         color: white;
@@ -18,6 +80,7 @@
     }
 
     h2 {
+        text-align: center;
         margin-top: 50px;
         background-color: #84626b;
         color: white;
@@ -47,20 +110,8 @@
 
     .main_div {
         margin: auto;
-        width: 50%;
+        width: 80%;
         padding: 5%;
-    }
-
-    .vypozicane {
-        background-color: #aceaec;
-    }
-
-    .nevratene {
-        background-color: #ecaeac;
-    }
-
-    .vratene {
-        background-color: #d3ecac;
     }
 }
 
@@ -72,6 +123,7 @@
     }
 
     h3 {
+        text-align: left;
         padding: 6px;
         background-color: #84626b;
         color: white;
@@ -79,6 +131,8 @@
     }
 
     h2 {
+        text-align: left;
+        padding: 6px;
         margin-top: 50px;
         background-color: #84626b;
         color: white;
@@ -108,20 +162,8 @@
 
     .main_div {
         margin: auto;
-        width: 50%;
+        width: 65%;
         padding: 5%;
-    }
-
-    .vypozicane {
-        background-color: #aceaec;
-    }
-
-    .nevratene {
-        background-color: #ecaeac;
-    }
-
-    .vratene {
-        background-color: #d3ecac;
     }
 }
 
@@ -133,6 +175,7 @@
     }
 
     h3 {
+        text-align: left;
         padding: 6px;
         background-color: #84626b;
         color: white;
@@ -140,6 +183,8 @@
     }
 
     h2 {
+        text-align: left;
+        padding: 6px;
         margin-top: 50px;
         background-color: #84626b;
         color: white;
@@ -171,18 +216,6 @@
         margin: auto;
         width: 50%;
         padding: 5%;
-    }
-
-    .vypozicane {
-        background-color: #aceaec;
-    }
-
-    .nevratene {
-        background-color: #ecaeac;
-    }
-
-    .vratene {
-        background-color: #d3ecac;
     }
 }
 
