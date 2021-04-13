@@ -2,7 +2,7 @@
 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+    <!-- hlavny tenpalte zakladneho html dokumentu -->
     <xsl:template match="/">
         <html>
             <head>
@@ -16,24 +16,30 @@
         </html>
     </xsl:template>
 
+    <!-- tenplaty pre kniznicu -->
     <xsl:template match="/kniznice/kniznica">
         <xsl:element name="h1">
             <xsl:text>Knižnice</xsl:text>
         </xsl:element>
 
+        <!-- tenplate popis ktory sa vola s pramentrami nazvu a adresy kniznice -->
         <xsl:call-template name="popis">
             <xsl:with-param name="nazov_param" select="@nazov_kniznice"/>
             <xsl:with-param name="adresa_param" select="@adresa"/>
         </xsl:call-template>
 
+        <!-- tenplaty pre ostatne elemnty zo suboru -->
         <xsl:apply-templates select="zanre"/>
         <xsl:apply-templates select="uzivatelia"/>
         <xsl:apply-templates select="knihovnici"/>
         <xsl:apply-templates select="autori"/>
+
+        <!-- tenplaty pre pocty pozicanych knih -->
         <xsl:call-template name="pozicane_knihy"/>
         <xsl:call-template name="pozicane_knihy_pocty"/>
     </xsl:template>
 
+    <!-- hlavicka pre tabulky knih -->
     <xsl:variable name="header">
         <thead>
             <xsl:attribute name="class">
@@ -47,6 +53,7 @@
         </thead>
     </xsl:variable>
 
+    <!-- tenplate s linkami pre nalinkovanie css suborov a metadata pre responzivitu -->
     <xsl:template name="head">
         <xsl:element name="link">
             <xsl:attribute name="rel">
@@ -88,6 +95,7 @@
         </xsl:element>
     </xsl:template>
 
+    <!-- tenplate pre popis kniznice -->
     <xsl:template name="popis">
         <xsl:param name="nazov_param"/>
         <xsl:param name="adresa_param"/>
@@ -103,11 +111,12 @@
         </p>
     </xsl:template>
 
+    <!-- tenplate pre zanre -->
     <xsl:template match="zanre">
         <xsl:element name="h2">
             <xsl:text>Žánre</xsl:text>
         </xsl:element>
-
+        <!-- cyklus pre jednotlive zanre -->
         <xsl:for-each select="zaner">
             <xsl:element name="h3">
                 <xsl:value-of select="meno"/>
@@ -117,6 +126,7 @@
                     <xsl:text>table_class</xsl:text>
                 </xsl:attribute>
                 <xsl:copy-of select="$header"/>
+                <!-- cyklus pre knihy v zanri -->
                 <xsl:for-each select="knihy">
                     <xsl:apply-templates select="kniha"/>
                 </xsl:for-each>
@@ -124,6 +134,7 @@
         </xsl:for-each>
     </xsl:template>
 
+    <!-- tenplate pre knihu v tebulke podla zanru -->
     <xsl:template match="kniha">
         <tbody>
             <tr>
@@ -141,6 +152,7 @@
                     </xsl:copy>
                 </td>
 
+                <!-- tenplate rozdelujuci rozne data v sekcii informacie -->
                 <xsl:call-template name="kniha_info">
                     <xsl:with-param name="informacie_obsah" select="informacie"/>
                 </xsl:call-template>
@@ -148,6 +160,7 @@
         </tbody>
     </xsl:template>
 
+    <!-- tenplate triediaci bud text infrmacii o knihe alebo link -->
     <xsl:template name="kniha_info">
         <xsl:param name="informacie_obsah"/>
         <td>
@@ -165,9 +178,9 @@
                 </xsl:otherwise>
             </xsl:choose>
         </td>
-
     </xsl:template>
 
+    <!-- hlavicka tabulky s menom a datumom -->
     <xsl:variable name="header_meno_datum">
         <thead>
             <xsl:attribute name="class">
@@ -185,6 +198,7 @@
         </thead>
     </xsl:variable>
 
+    <!--  hlavicka tabulky s menom a datumom -->
     <xsl:variable name="header_meno_datum_vypozicka">
         <thead>
             <xsl:attribute name="class">
@@ -203,6 +217,7 @@
         </thead>
     </xsl:variable>
 
+    <!-- tenplate pre uzivatelov -->
     <xsl:template match="uzivatelia">
         <h2>Užívatelia</h2>
         <table>
@@ -239,6 +254,7 @@
         </table>
     </xsl:template>
 
+    <!-- tenplate pre knihovikov -->
     <xsl:template match="knihovnici">
         <h2>Knihovníci</h2>
         <table>
@@ -269,6 +285,7 @@
         </table>
     </xsl:template>
 
+    <!-- tenpalte pre autorov -->
     <xsl:template match="autori">
         <h2>Autori</h2>
         <table>
@@ -294,7 +311,9 @@
         </table>
     </xsl:template>
 
+    <!-- tenplate pre pozicane diela -->
     <xsl:template name="pozicane_knihy">
+        <!-- nadpis obsahuje pocet diel ktore su pozicane -->
         <xsl:element name="h2">
             <xsl:text>Požičané knihy podľa diela:</xsl:text>
             <xsl:value-of select="count(//kniha[@id = //pozicana_kniha/@idKnihy])"/>
@@ -314,6 +333,7 @@
                     </th>
                 </tr>
             </thead>
+            <!-- xpath pre knihy ktroe su v zoznema knih a zarov su pozicane -->
             <tbody>
                 <xsl:for-each select="//kniha[@id = //pozicana_kniha/@idKnihy]">
                     <tr>
@@ -329,8 +349,9 @@
         </table>
     </xsl:template>
 
-
+    <!-- tenplate pre pozicane knihy u jednotlvych uzivatelov -->
     <xsl:template name="pozicane_knihy_pocty">
+        <!-- celkovy pocet pozicanych knih -->
         <xsl:element name="h2">
             <xsl:text>Požičané knihy podľa počtu:</xsl:text>
             <xsl:value-of select="count(//pozicana_kniha)"/>
@@ -340,6 +361,7 @@
                 <xsl:text>table_class</xsl:text>
             </xsl:attribute>
 
+            <!-- cyklus pre uzivatelov ktroy maju pozicanu aspon jednu knihu -->
             <xsl:for-each select="//uzivatel[vypozicka[count(*) > 0]]">
 
                 <xsl:element name="tr">
@@ -354,6 +376,7 @@
                     </xsl:element>
                 </xsl:element>
 
+                <!-- vypis knih u jednotlivych uzivatelov -->
                 <xsl:for-each select="vypozicka/pozicana_kniha">
                     <xsl:element name="tr">
                         <xsl:element name="td">
