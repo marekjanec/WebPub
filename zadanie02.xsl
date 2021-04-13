@@ -47,7 +47,13 @@
             </xsl:attribute>
             <tr>
                 <th>Názov</th>
-                <th>Počet strán</th>
+                <th>
+
+                    <xsl:attribute name="class">
+                        <xsl:text>table_row</xsl:text>
+                    </xsl:attribute>
+                    <xsl:text>Počet strán</xsl:text>
+                </th>
                 <th>Informácie</th>
             </tr>
         </thead>
@@ -147,9 +153,13 @@
                     </xsl:copy>
                 </td>
                 <td>
+                    <xsl:attribute name="class">
+                        <xsl:text>table_row</xsl:text>
+                    </xsl:attribute>
                     <xsl:copy>
                         <xsl:value-of select="pocet_stran"/>
                     </xsl:copy>
+
                 </td>
 
                 <!-- tenplate rozdelujuci rozne data v sekcii informacie -->
