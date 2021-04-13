@@ -127,10 +127,14 @@
                     <xsl:value-of select="@id"/>
                 </xsl:attribute>
                 <td>
-                    <xsl:value-of select="nazov"/>
+                    <xsl:copy>
+                        <xsl:value-of select="nazov"/>
+                    </xsl:copy>
                 </td>
                 <td>
-                    <xsl:value-of select="pocet_stran"/>
+                    <xsl:copy>
+                        <xsl:value-of select="pocet_stran"/>
+                    </xsl:copy>
                 </td>
 
                 <xsl:call-template name="kniha_info">
@@ -167,7 +171,12 @@
             </xsl:attribute>
             <tr>
                 <th>Meno</th>
-                <th>datum narodenia</th>
+                <th>
+                    <xsl:attribute name="class">
+                        <xsl:text>table_row</xsl:text>
+                    </xsl:attribute>
+                    <xsl:text>datum narodenia</xsl:text>
+                </th>
             </tr>
         </thead>
     </xsl:variable>
@@ -179,7 +188,12 @@
             </xsl:attribute>
             <tr>
                 <th>Meno</th>
-                <th>datum narodenia</th>
+                <th>
+                    <xsl:attribute name="class">
+                        <xsl:text>table_row</xsl:text>
+                    </xsl:attribute>
+                    <xsl:text>datum narodenia</xsl:text>
+                </th>
                 <th>pozicky</th>
             </tr>
         </thead>
@@ -204,6 +218,9 @@
                         </xsl:element>
 
                         <xsl:element name="td">
+                            <xsl:attribute name="class">
+                                <xsl:text>table_row</xsl:text>
+                            </xsl:attribute>
                             <xsl:value-of select="datum_narodenia"/>
                         </xsl:element>
 
@@ -237,6 +254,9 @@
                         </xsl:element>
 
                         <xsl:element name="td">
+                            <xsl:attribute name="class">
+                                <xsl:text>table_row</xsl:text>
+                            </xsl:attribute>
                             <xsl:value-of select="datum_narodenia"/>
                         </xsl:element>
                     </tr>
@@ -259,6 +279,9 @@
                             <xsl:value-of select="meno"/>
                         </td>
                         <td>
+                            <xsl:attribute name="class">
+                                <xsl:text>table_row</xsl:text>
+                            </xsl:attribute>
                             <xsl:value-of select="datum_narodenia"/>
                         </td>
                     </tr>
