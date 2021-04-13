@@ -1,61 +1,188 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
 
-body {
-    background-color: #EDF7F6;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-h3 {
-    padding: 6px;
-    background-color: #84626b;
-    color: white;
-    font-weight: bold;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    body {
+        background-color: #EDF7F6;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h3 {
+        padding: 6px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    h2 {
+        margin-top: 50px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    tr:nth-of-type(odd) {
+        background: #eee;
+    }
+
+    th {
+        background: #A18089;
+        color: white;
+        font-weight: bold;
+    }
+
+    td, th {
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    .main_div {
+        margin: auto;
+        width: 50%;
+        padding: 5%;
+    }
+
+    .vypozicane {
+        background-color: #aceaec;
+    }
+
+    .nevratene {
+        background-color: #ecaeac;
+    }
+
+    .vratene {
+        background-color: #d3ecac;
+    }
 }
 
-h2 {
-    margin-top: 50px;
-    background-color: #84626b;
-    color: white;
-    font-weight: bold;
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        background-color: #EDF7F6;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h3 {
+        padding: 6px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    h2 {
+        margin-top: 50px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    tr:nth-of-type(odd) {
+        background: #eee;
+    }
+
+    th {
+        background: #A18089;
+        color: white;
+        font-weight: bold;
+    }
+
+    td, th {
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    .main_div {
+        margin: auto;
+        width: 50%;
+        padding: 5%;
+    }
+
+    .vypozicane {
+        background-color: #aceaec;
+    }
+
+    .nevratene {
+        background-color: #ecaeac;
+    }
+
+    .vratene {
+        background-color: #d3ecac;
+    }
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    body {
+        background-color: #EDF7F6;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h3 {
+        padding: 6px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    h2 {
+        margin-top: 50px;
+        background-color: #84626b;
+        color: white;
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    tr:nth-of-type(odd) {
+        background: #eee;
+    }
+
+    th {
+        background: #A18089;
+        color: white;
+        font-weight: bold;
+    }
+
+    td, th {
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    .main_div {
+        margin: auto;
+        width: 50%;
+        padding: 5%;
+    }
+
+    .vypozicane {
+        background-color: #aceaec;
+    }
+
+    .nevratene {
+        background-color: #ecaeac;
+    }
+
+    .vratene {
+        background-color: #d3ecac;
+    }
 }
-
-tr:nth-of-type(odd) {
-    background: #eee;
-}
-
-th {
-    background: #A18089;
-    color: white;
-    font-weight: bold;
-}
-
-td, th {
-    padding: 6px;
-    border: 1px solid #ccc;
-    text-align: left;
-}
-
-.main_div {
-    margin: auto;
-    width: 50%;
-    padding: 5%;
-}
-
-.vypozicane {
-    background-color: #aceaec;
-}
-
-.nevratene {
-    background-color: #ecaeac;
-}
-
-.vratene {
-    background-color: #d3ecac;
-}
-
-
 

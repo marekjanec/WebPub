@@ -35,6 +35,15 @@
                         <xsl:text>print.css</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
+
+                <xsl:element name="meta">
+                    <xsl:attribute name="name">
+                        <xsl:text>viewport</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="content">
+                        <xsl:text>width=device-width, initial-scale=1.0</xsl:text>
+                    </xsl:attribute>
+                </xsl:element>
             </head>
             <body>
                 <div class="main_div">
