@@ -1,18 +1,29 @@
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+body {
+    font-family: "Times New Roman", Times, serif;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+h2 {
+    margin-top: 30pt;
+}
 
 th {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 td, th {
-  padding: 6px;
-  border: 1px solid black;
-  text-align: left;
+    padding: 6px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+a::after {
+    content: " (" attr(href) ") ";
 }
 
 .main_div {
@@ -20,5 +31,11 @@ td, th {
     width: 90%;
     padding: 5%;
 }
+
+.table_class_header {
+    repeat-on-break: auto;
+}
+
+
 
 
