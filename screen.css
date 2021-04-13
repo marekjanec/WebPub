@@ -15,6 +15,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    text-align: center;
+    padding: 50px;
+    background-color: #674c53;
+    color: white;
+    font-weight: bold;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

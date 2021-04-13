@@ -6,44 +6,7 @@
     <xsl:template match="/">
         <html>
             <head>
-                <xsl:element name="link">
-                    <xsl:attribute name="rel">
-                        <xsl:text>stylesheet</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="type">
-                        <xsl:text>text/css</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="media">
-                        <xsl:text>screen</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="href">
-                        <xsl:text>screen.css</xsl:text>
-                    </xsl:attribute>
-                </xsl:element>
-
-                <xsl:element name="link">
-                    <xsl:attribute name="rel">
-                        <xsl:text>stylesheet</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="type">
-                        <xsl:text>text/css</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="media">
-                        <xsl:text>print</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="href">
-                        <xsl:text>print.css</xsl:text>
-                    </xsl:attribute>
-                </xsl:element>
-
-                <xsl:element name="meta">
-                    <xsl:attribute name="name">
-                        <xsl:text>viewport</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="content">
-                        <xsl:text>width=device-width, initial-scale=1.0</xsl:text>
-                    </xsl:attribute>
-                </xsl:element>
+                <xsl:call-template name="head"/>
             </head>
             <body>
                 <div class="main_div">
@@ -55,7 +18,7 @@
 
     <xsl:template match="/kniznice/kniznica">
         <xsl:element name="h1">
-            <xsl:text>Kniznice</xsl:text>
+            <xsl:text>Knižnice</xsl:text>
         </xsl:element>
 
         <xsl:call-template name="popis">
@@ -77,19 +40,60 @@
                 <xsl:text>table_class_header</xsl:text>
             </xsl:attribute>
             <tr>
-                <th>Nazov</th>
-                <th>Pocet stran</th>
-                <th>Informacie</th>
+                <th>Názov</th>
+                <th>Počet strán</th>
+                <th>Informácie</th>
             </tr>
         </thead>
     </xsl:variable>
+
+    <xsl:template name="head">
+        <xsl:element name="link">
+            <xsl:attribute name="rel">
+                <xsl:text>stylesheet</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="type">
+                <xsl:text>text/css</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="media">
+                <xsl:text>screen</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="href">
+                <xsl:text>screen.css</xsl:text>
+            </xsl:attribute>
+        </xsl:element>
+
+        <xsl:element name="link">
+            <xsl:attribute name="rel">
+                <xsl:text>stylesheet</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="type">
+                <xsl:text>text/css</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="media">
+                <xsl:text>print</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="href">
+                <xsl:text>print.css</xsl:text>
+            </xsl:attribute>
+        </xsl:element>
+
+        <xsl:element name="meta">
+            <xsl:attribute name="name">
+                <xsl:text>viewport</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="content">
+                <xsl:text>width=device-width, initial-scale=1.0</xsl:text>
+            </xsl:attribute>
+        </xsl:element>
+    </xsl:template>
 
     <xsl:template name="popis">
         <xsl:param name="nazov_param"/>
         <xsl:param name="adresa_param"/>
 
         <xsl:element name="h2">
-            <xsl:text>Kniznica</xsl:text>
+            <xsl:text>Knižnica</xsl:text>
         </xsl:element>
 
         <p>
@@ -101,7 +105,7 @@
 
     <xsl:template match="zanre">
         <xsl:element name="h2">
-            <xsl:text>Zanre</xsl:text>
+            <xsl:text>Žánre</xsl:text>
         </xsl:element>
 
         <xsl:for-each select="zaner">
@@ -175,7 +179,7 @@
                     <xsl:attribute name="class">
                         <xsl:text>table_row</xsl:text>
                     </xsl:attribute>
-                    <xsl:text>datum narodenia</xsl:text>
+                    <xsl:text>dátum narodenia</xsl:text>
                 </th>
             </tr>
         </thead>
@@ -194,13 +198,13 @@
                     </xsl:attribute>
                     <xsl:text>datum narodenia</xsl:text>
                 </th>
-                <th>pozicky</th>
+                <th>pôžičky</th>
             </tr>
         </thead>
     </xsl:variable>
 
     <xsl:template match="uzivatelia">
-        <h2>Uzivatelia</h2>
+        <h2>Užívatelia</h2>
         <table>
             <xsl:attribute name="class">
                 <xsl:text>table_class</xsl:text>
@@ -236,7 +240,7 @@
     </xsl:template>
 
     <xsl:template match="knihovnici">
-        <h2>Knihovnici</h2>
+        <h2>Knihovníci</h2>
         <table>
             <xsl:attribute name="class">
                 <xsl:text>table_class</xsl:text>
@@ -292,7 +296,7 @@
 
     <xsl:template name="pozicane_knihy">
         <xsl:element name="h2">
-            <xsl:text>Pozicane knihy podla diela:</xsl:text>
+            <xsl:text>Požičané knihy podľa diela:</xsl:text>
             <xsl:value-of select="count(//kniha[@id = //pozicana_kniha/@idKnihy])"/>
         </xsl:element>
 
@@ -306,7 +310,7 @@
                         <xsl:text>ID</xsl:text>
                     </th>
                     <th>
-                        <xsl:text>Nazov</xsl:text>
+                        <xsl:text>Názov</xsl:text>
                     </th>
                 </tr>
             </thead>
@@ -328,7 +332,7 @@
 
     <xsl:template name="pozicane_knihy_pocty">
         <xsl:element name="h2">
-            <xsl:text>Pozicane knihy podla poctu:</xsl:text>
+            <xsl:text>Požičané knihy podľa počtu:</xsl:text>
             <xsl:value-of select="count(//pozicana_kniha)"/>
         </xsl:element>
         <table>
