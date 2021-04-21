@@ -103,91 +103,55 @@
             <g transform="translate(100, 200)" stroke="#222" stroke-width=".5">
                 <xsl:for-each select="//zaner">
                     <rect width="100" fill="#d3ecac">
-                    <xsl:choose>
-                        <xsl:when
-                                test="(sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2 >= 1000">
-                            <xsl:attribute name="y">
-                                <xsl:text>0</xsl:text>
-                            </xsl:attribute>
-                            <xsl:attribute name="height">
-                                <xsl:text>500</xsl:text>
-                            </xsl:attribute>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:attribute name="y">
-                                <xsl:value-of
-                                        select="500 - (sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2"/>
-                            </xsl:attribute>
-                            <xsl:attribute name="height">
-                                <xsl:value-of
-                                        select="(sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2"/>
-                            </xsl:attribute>
+                        <xsl:choose>
+                            <xsl:when
+                                    test="(sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2 >= 1000">
+                                <xsl:attribute name="y">
+                                    <xsl:text>0</xsl:text>
+                                </xsl:attribute>
+                                <xsl:attribute name="height">
+                                    <xsl:text>500</xsl:text>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:attribute name="y">
+                                    <xsl:value-of
+                                            select="500 - (sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2"/>
+                                </xsl:attribute>
+                                <xsl:attribute name="height">
+                                    <xsl:value-of
+                                            select="(sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2"/>
+                                </xsl:attribute>
 
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <xsl:attribute name="x">
-                        <xsl:value-of
-                                select="50 + 200 * count(preceding-sibling::*)"/>
-                    </xsl:attribute>
-                </rect>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:attribute name="x">
+                            <xsl:value-of
+                                    select="50 + 200 * count(preceding-sibling::*)"/>
+                        </xsl:attribute>
+                    </rect>
+                    <text text-anchor="middle" dominant-baseline="middle" font-size="20">
+                        <xsl:choose>
+                            <xsl:when
+                                    test="(sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2 >= 1000">
+                                <xsl:attribute name="y">
+                                    <xsl:text>-6</xsl:text>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:attribute name="y">
+                                    <xsl:value-of
+                                            select="494 - (sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2"/>
+                                </xsl:attribute>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:attribute name="x">
+                            <xsl:value-of
+                                    select="100 + 200 * count(preceding-sibling::*)"/>
+                        </xsl:attribute>
+                        <xsl:value-of select="sum(knihy/kniha/pocet_stran) div count(knihy/kniha)"/>
+                    </text>
                 </xsl:for-each>
-
-                <text x="100" text-anchor="middle" dominant-baseline="middle" font-size="20">
-                    <xsl:choose>
-                        <xsl:when
-                                test="(sum(//zaner[meno = 'Jablka']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Jablka']/knihy/kniha)) div 2 >= 1000">
-                            <xsl:attribute name="y">
-                                <xsl:text>-6</xsl:text>
-                            </xsl:attribute>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:attribute name="y">
-                                <xsl:value-of
-                                        select="494 - (sum(//zaner[meno = 'Kukurica']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Kukurica']/knihy/kniha)) div 2"/>
-                            </xsl:attribute>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <xsl:value-of
-                            select="sum(//zaner[meno = 'Kukurica']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Kukurica']/knihy/kniha)"/>
-                </text>
-
-                <text x="300" text-anchor="middle" dominant-baseline="middle" font-size="20">
-                    <xsl:choose>
-                        <xsl:when
-                                test="(sum(//zaner[meno = 'Jablka']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Jablka']/knihy/kniha)) div 2 >= 1000">
-                            <xsl:attribute name="y">
-                                <xsl:text>-6</xsl:text>
-                            </xsl:attribute>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:attribute name="y">
-                                <xsl:value-of
-                                        select="494 - (sum(//zaner[meno = 'Mrkva']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Mrkva']/knihy/kniha)) div 2"/>
-                            </xsl:attribute>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <xsl:value-of
-                            select="sum(//zaner[meno = 'Mrkva']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Mrkva']/knihy/kniha)"/>
-                </text>
-
-                <text x="500" text-anchor="middle" dominant-baseline="middle" font-size="20">
-                    <xsl:choose>
-                        <xsl:when
-                                test="(sum(//zaner[meno = 'Jablka']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Jablka']/knihy/kniha)) div 2 >= 1000">
-                            <xsl:attribute name="y">
-                                <xsl:text>-6</xsl:text>
-                            </xsl:attribute>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:attribute name="y">
-                                <xsl:value-of
-                                        select="494 - (sum(//zaner[meno = 'Jablka']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Jablka']/knihy/kniha)) div 2"/>
-                            </xsl:attribute>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <xsl:value-of
-                            select="sum(//zaner[meno = 'Jablka']/knihy/kniha/pocet_stran) div count(//zaner[meno = 'Jablka']/knihy/kniha)"/>
-                </text>
             </g>
         </svg>
     </xsl:template>
