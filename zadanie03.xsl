@@ -22,27 +22,28 @@
                 Hodnotenia pesničiek a ich početnosť naprieč všetkými albumami v roku 2019.
             </desc>
 
-            <!-- axes -->
+            <!-- osi -->
             <g stroke="#777" stroke-width="1" font-size="18" font-family="Helvetica">
-                <!-- Y wrapper -->
+                <!-- Y os -->
                 <g transform="translate(100, 100)">
                     <!-- Y line -->
                     <line x1="0" x2="0" y1="0" y2="600"/>
 
-                    <!-- Y ticks -->
+                    <!-- Y ciakra mimo grafu pre stovky -->
                     <line x1="-10" x2="0" y1="100" y2="100"/>
                     <line x1="-10" x2="0" y1="200" y2="200"/>
                     <line x1="-10" x2="0" y1="300" y2="300"/>
                     <line x1="-10" x2="0" y1="400" y2="400"/>
                     <line x1="-10" x2="0" y1="500" y2="500"/>
 
+                    <!-- Y ciakra mimo grafu pre polovice stoviek -->
                     <line x1="-5" x2="0" y1="150" y2="150"/>
                     <line x1="-5" x2="0" y1="250" y2="250"/>
                     <line x1="-5" x2="0" y1="350" y2="350"/>
                     <line x1="-5" x2="0" y1="450" y2="450"/>
                     <line x1="-5" x2="0" y1="550" y2="550"/>
 
-                    <!-- auxiliary lines -->
+                    <!-- ciarkovane ciary pre cele stovky -->
                     <g stroke="#ccc" stroke-dasharray="10 10">
                         <line x1="0" x2="600" y1="100" y2="100"/>
                         <line x1="0" x2="600" y1="200" y2="200"/>
@@ -51,7 +52,7 @@
                         <line x1="0" x2="600" y1="500" y2="500"/>
                     </g>
 
-                    <!-- auxiliary lines -->
+                    <!-- hustejsie ciarky pre polovice stoviek -->
                     <g stroke="#ccc" stroke-dasharray="10 4">
                         <line x1="0" x2="600" y1="150" y2="150"/>
                         <line x1="0" x2="600" y1="250" y2="250"/>
@@ -60,7 +61,7 @@
                         <line x1="0" x2="600" y1="550" y2="550"/>
                     </g>
 
-                    <!-- Y labels -->
+                    <!-- Y popisy -->
                     <g text-anchor="end" dominant-baseline="middle">
                         <text x="-15" y="100">1000</text>
                         <text x="-15" y="200">800</text>
@@ -69,19 +70,20 @@
                         <text x="-15" y="500">200</text>
                     </g>
 
-                    <!-- Y name -->
+                    <!-- Y meno -->
                     <text x="-50" y="300" text-anchor="middle" dominant-baseline="middle" font-size="18"
                           font-weight="bold" transform="rotate(-90, -50, 320)">
                         Priemerný počet strán na knihu
                     </text>
                 </g>
 
-                <!-- X wrapper -->
+                <!-- X os -->
                 <g transform="translate(100, 700)">
-                    <!-- X line -->
+                    <!-- X ciara -->
                     <line x1="0" x2="600" y1="0" y2="0"/>
 
-                    <!-- X ticks-->
+                    <!-- tie male ciraky na X osi-->
+                    <!-- poziciu pocitam pomocou predchodcov zanru v xml subore -->
                     <xsl:for-each select="//zaner">
                         <line y1="7" y2="0">
                             <xsl:attribute name="x1">
@@ -93,7 +95,8 @@
                         </line>
                     </xsl:for-each>
 
-                    <!-- X labels -->
+                    <!-- popisy na X osi -->
+                    <!-- poziciu pocitam pomocou predchodcov zanru v xml subore -->
                     <g text-anchor="end">
                         <xsl:for-each select="//zaner">
                             <text y="30">
