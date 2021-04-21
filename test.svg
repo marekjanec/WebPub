@@ -43,23 +43,23 @@
     </g>
     <g transform="translate(100, 700)">
       <line x1="0" x2="600" y1="0" y2="0"/>
-      <line x1="100" x2="100" y1="7" y2="0"/>
-      <line x1="300" x2="300" y1="7" y2="0"/>
-      <line x1="500" x2="500" y1="7" y2="0"/>
+      <line y1="7" y2="0" x1="100" x2="100"/>
+      <line y1="7" y2="0" x1="300" x2="300"/>
+      <line y1="7" y2="0" x1="500" x2="500"/>
       <g text-anchor="end">
-        <text x="100" y="30" transform="rotate(-30, 100, 30)">Kukurice</text>
-        <text x="300" y="30" transform="rotate(-30, 300, 30)">Mrkva</text>
-        <text x="500" y="30" transform="rotate(-30, 500, 30)">Jablka</text>
+        <text y="30" x="100" transform="rotate(-30,100, 30)">Kukurica</text>
+        <text y="30" x="300" transform="rotate(-30,300, 30)">Mrkva</text>
+        <text y="30" x="500" transform="rotate(-30,500, 30)">Jablka</text>
       </g>
       <text x="280" y="85" text-anchor="middle" font-size="18" font-weight="bold">&#381;&#225;ner</text>
     </g>
   </g>
   <g transform="translate(100, 200)" stroke="#222" stroke-width=".5">
     <rect width="100" fill="#d3ecac" y="356.3" height="143.7" x="50"/>
-    <text text-anchor="middle" dominant-baseline="middle" font-size="20" y="350.3" x="100">287.4</text>
+    <text text-anchor="middle" dominant-baseline="middle" font-size="20" x="100" y="350.3">287.4</text>
     <rect width="100" fill="#d3ecac" y="202.4" height="297.6" x="250"/>
-    <text text-anchor="middle" dominant-baseline="middle" font-size="20" y="196.4" x="300">595.2</text>
+    <text text-anchor="middle" dominant-baseline="middle" font-size="20" x="300" y="196.4">595.2</text>
     <rect width="100" fill="#d3ecac" y="-0.5" height="500.5" x="450"/>
-    <text text-anchor="middle" dominant-baseline="middle" font-size="20" y="-6.5" x="500">1001</text>
+    <text text-anchor="middle" dominant-baseline="middle" font-size="20" x="500" y="-6">1000+</text>
   </g>
 </svg>

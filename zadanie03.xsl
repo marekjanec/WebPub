@@ -82,15 +82,32 @@
                     <line x1="0" x2="600" y1="0" y2="0"/>
 
                     <!-- X ticks-->
-                    <line x1="100" x2="100" y1="7" y2="0"/>
-                    <line x1="300" x2="300" y1="7" y2="0"/>
-                    <line x1="500" x2="500" y1="7" y2="0"/>
+                    <xsl:for-each select="//zaner">
+                        <line y1="7" y2="0">
+                            <xsl:attribute name="x1">
+                                <xsl:value-of select="100 + 200 * count(preceding-sibling::*)"/>
+                            </xsl:attribute>
+                            <xsl:attribute name="x2">
+                                <xsl:value-of select="100 + 200 * count(preceding-sibling::*)"/>
+                            </xsl:attribute>
+                        </line>
+                    </xsl:for-each>
 
                     <!-- X labels -->
                     <g text-anchor="end">
-                        <text x="100" y="30" transform="rotate(-30, 100, 30)">Kukurice</text>
-                        <text x="300" y="30" transform="rotate(-30, 300, 30)">Mrkva</text>
-                        <text x="500" y="30" transform="rotate(-30, 500, 30)">Jablka</text>
+                        <xsl:for-each select="//zaner">
+                            <text y="30">
+                                <xsl:attribute name="x">
+                                    <xsl:value-of select="100 + 200 * count(preceding-sibling::*)"/>
+                                </xsl:attribute>
+                                <xsl:attribute name="transform">
+                                    <xsl:text>rotate(-30,</xsl:text>
+                                    <xsl:value-of select="100 + 200 * count(preceding-sibling::*)"/>
+                                    <xsl:text>, 30)</xsl:text>
+                                </xsl:attribute>
+                                <xsl:value-of select="meno"/>
+                            </text>
+                        </xsl:for-each>
                     </g>
 
                     <!-- X name -->
@@ -99,10 +116,33 @@
             </g>
 
 
-            <!-- bars -->
-            <g transform="translate(100, 200)" stroke="#222" stroke-width=".5">
+            <!-- stlpce -->
+            <!-- stlpce obsahuju priemerny pocet stran na knizu pre zaner -->
+            <!-- stlpce aj s priemerom vypisujem v cykle ktory funguje na zaklade poradia zanru v xml subore -->
+            <!-- ak je priemerny pocet stran na knihu viac ako 1000 tak je vykresleny na maximalny
+                 rozsah grafu a jeho prriemer je zapisany ako 1000+ -->
+            <xsl:element name="g">
+                <xsl:attribute name="transform">
+                    <xsl:text>translate(100, 200)</xsl:text>
+                </xsl:attribute>
+                <xsl:attribute name="stroke">
+                    <xsl:text>#222</xsl:text>
+                </xsl:attribute>
+                <xsl:attribute name="stroke-width">
+                    <xsl:text>.5</xsl:text>
+                </xsl:attribute>
                 <xsl:for-each select="//zaner">
-                    <rect width="100" fill="#d3ecac">
+
+                    <!-- stlpce -->
+                    <xsl:element name="rect">
+                        <xsl:attribute name="width">
+                            <xsl:text>100</xsl:text>
+                        </xsl:attribute>
+                        <xsl:attribute name="fill">
+                            <xsl:text>#d3ecac</xsl:text>
+                        </xsl:attribute>
+
+                        <!-- nastavenie pozicie a vysky stlpcov -->
                         <xsl:choose>
                             <xsl:when
                                     test="(sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2 >= 1000">
@@ -129,30 +169,44 @@
                             <xsl:value-of
                                     select="50 + 200 * count(preceding-sibling::*)"/>
                         </xsl:attribute>
-                    </rect>
-                    <text text-anchor="middle" dominant-baseline="middle" font-size="20">
+                    </xsl:element>
+
+                    <!-- text na stlpcoch -->
+                    <xsl:element name="text">
+                        <xsl:attribute name="text-anchor">
+                            <xsl:text>middle</xsl:text>
+                        </xsl:attribute>
+                        <xsl:attribute name="dominant-baseline">
+                            <xsl:text>middle</xsl:text>
+                        </xsl:attribute>
+                        <xsl:attribute name="font-size">
+                            <xsl:text>20</xsl:text>
+                        </xsl:attribute>
+                        <xsl:attribute name="x">
+                            <xsl:value-of
+                                    select="100 + 200 * count(preceding-sibling::*)"/>
+                        </xsl:attribute>
+
+                        <!-- nastavenie pozicie a obsah textu -->
                         <xsl:choose>
                             <xsl:when
-                                    test="(sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2 >= 1000">
+                                    test="sum(knihy/kniha/pocet_stran) div count(knihy/kniha) >= 1000">
                                 <xsl:attribute name="y">
                                     <xsl:text>-6</xsl:text>
                                 </xsl:attribute>
+                                <xsl:text>1000+</xsl:text>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:attribute name="y">
                                     <xsl:value-of
                                             select="494 - (sum(knihy/kniha/pocet_stran) div count(knihy/kniha)) div 2"/>
                                 </xsl:attribute>
+                                <xsl:value-of select="sum(knihy/kniha/pocet_stran) div count(knihy/kniha)"/>
                             </xsl:otherwise>
                         </xsl:choose>
-                        <xsl:attribute name="x">
-                            <xsl:value-of
-                                    select="100 + 200 * count(preceding-sibling::*)"/>
-                        </xsl:attribute>
-                        <xsl:value-of select="sum(knihy/kniha/pocet_stran) div count(knihy/kniha)"/>
-                    </text>
+                    </xsl:element>
                 </xsl:for-each>
-            </g>
+            </xsl:element>
         </svg>
     </xsl:template>
 </xsl:stylesheet>
